@@ -41,24 +41,28 @@ int main(void)
     }
 
     // return if the number is valid
+    // Check if the card is American Express
     if (count == 15 && (temp_n == 34 || temp_n == 37) && sum % 10 == 0)
     {
         printf("AMEX\n");
         return 0;
     }
+    // Check if the card is MasterCard
     else if (count == 16 && (temp_n > 50 && temp_n < 56) && sum % 10 == 0)
     {
         printf("MASTERCARD\n");
         return 0;
     }
+    // Check if the card is Visa
     else if ((count == 13 || count == 16) && (temp_n / 10 == 4) && sum % 10 == 0)
     {
         printf("VISA\n");
         return 0;
     }
+    // Print Invalid if it's not one of the above
     else
     {
         printf("INVALID\n");
-        return 1;
+        return 0;
     }
 }

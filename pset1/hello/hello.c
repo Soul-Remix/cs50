@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <cs50.h>
 
 int main(void)
 {
-    printf("Hello, World\n");
+    // Get the user name
+    string name = get_string("Name: ");
+    // Print Hello World to the console
+    printf("%s\n", name);
 }
