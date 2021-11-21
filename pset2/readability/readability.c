@@ -7,30 +7,26 @@ int main(void)
 {
     string text = get_string("Text: ");
 
-    int length = strlen(text);
-
-    float letters = 0;
-    for (int i = 0, n = length; i < n; i++)
+    // Initial values
+    int letters = 0;
+    float words = 1;
+    float sentences = 0;
+    for (int i = 0, n = strlen(text); i < n; i++)
     {
+        // Check for letters in the text
         if ((text[i] >= 97 && text[i] <= 122) ||
             (text[i] >= 65 && text[i] <= 90))
         {
             letters++;
         }
-    }
 
-    float words = 1;
-    for (int i = 0, n = length; i < n; i++)
-    {
+        // Check for words in the text
         if (text[i] == 32)
         {
             words++;
         }
-    }
 
-    float sentences = 0;
-    for (int i = 0, n = length; i < n; i++)
-    {
+        // Check for sentences in the text
         if (text[i] == 46 || text[i] == 33 || text[i] == 63)
         {
             sentences++;
@@ -43,6 +39,7 @@ int main(void)
 
     int grade = round(0.0588 * L - 0.296 * S - 15.8);
 
+    // Print the grade
     if (grade < 1)
     {
         printf("Before Grade 1\n");
